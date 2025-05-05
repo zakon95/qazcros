@@ -1,0 +1,44 @@
+name: qazcros
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.19.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  shared_preferences: ^2.2.2
+  flutter_markdown: ^0.7.7
+  google_fonts: ^6.2.1
+  logging: ^1.2.0
+  audioplayers: ^5.2.1
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  cloud_firestore: ^4.13.6
+  google_sign_in: ^6.3.0
+  sign_in_with_apple: ^7.0.1
+  intl: ^0.20.2
+  image_picker: ^1.1.2
+  firebase_storage: ^11.5.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/sample_levels/
+    - assets/category_images/
+    - assets/images/
+    - assets/avatars/
+    - assets/audio/bg_music.mp3
+    - assets/audio/click.wav
+    - assets/audio/success.wav
+    - assets/audio/error.wav

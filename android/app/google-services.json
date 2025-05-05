@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "526990363113",
+    "project_id": "qazcros",
+    "storage_bucket": "qazcros.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526990363113:android:2d15f2311337dacc11a378",
+        "android_client_info": {
+          "package_name": "kz.damir.qazcros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526990363113-592kjvrc0oonbpcnbclu7ums5cq69u7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kz.damir.qazcros",
+            "certificate_hash": "bb51d543f54ed257f936871b3de66e14cad4ea55"
+          }
+        },
+        {
+          "client_id": "526990363113-q3vu5afv8mmapq1ha59ps1bbqkak4ln1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjQ1wtGbGKH2Qs_3-cXuMJXR1MiTlxW8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526990363113-q3vu5afv8mmapq1ha59ps1bbqkak4ln1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "526990363113-dv435lfde568o4igpgc7lp7ogn7knk5o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kz.damir.qazcros"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
