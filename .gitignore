@@ -45,3 +45,5 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 backup_project/assets/sample_levels/qazcros-firebase-adminsdk-fbsvc-13e34134fa.json
+
+temp-qazcros/

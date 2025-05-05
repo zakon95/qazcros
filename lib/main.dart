@@ -8,6 +8,7 @@ import 'services/progress_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'screens/login_screen.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 
 Future<void> initializeApp() async {
   // Инициализация логгера
@@ -47,6 +48,13 @@ Future<void> initializeApp() async {
     
     // Синхронизация прогресса, если пользователь авторизован
     await syncUserProgress();
+
+    // Инициализация App Check
+    await FirebaseAppCheck.instance.activate(
+      webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
+      androidProvider: AndroidProvider.debug,
+      appleProvider: AppleProvider.appAttest,
+    );
   } catch (e, stackTrace) {
     logger.severe('Error during app initialization: $e\nStack trace: $stackTrace');
     rethrow; // Пробрасываем ошибку дальше

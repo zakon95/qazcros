@@ -408,13 +408,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       final picker = ImagePicker();
       final pickedFile = await picker.pickImage(
         source: ImageSource.gallery,
-        imageQuality: 85, // Увеличиваем качество
-        maxWidth: 400,   // Уменьшаем максимальный размер
+        imageQuality: 85,
+        maxWidth: 400,
         maxHeight: 400,
       );
       
       if (pickedFile != null) {
-        // Показываем индикатор загрузки
         if (mounted) {
           showDialog(
             context: context,
@@ -425,7 +424,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
         final user = FirebaseAuth.instance.currentUser;
         if (user == null) {
-          Navigator.of(context).pop(); // Закрываем индикатор
+          if (mounted) {
+            Navigator.of(context).pop();
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Ошибка: пользователь не авторизован')),
+            );
+          }
           return;
         }
 
@@ -456,26 +460,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
           });
 
           if (mounted) {
-            Navigator.of(context).pop(); // Закрываем индикатор
+            Navigator.of(context).pop();
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Аватар успешно обновлен')),
             );
           }
         } catch (e) {
           if (mounted) {
-            Navigator.of(context).pop(); // Закрываем индикатор
+            Navigator.of(context).pop();
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Ошибка загрузки: ${e.toString()}')),
+              SnackBar(content: Text('Ошибка при загрузке аватарки: $e')),
             );
           }
+          _logger.severe('Error uploading avatar: $e');
         }
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Ошибка выбора файла: ${e.toString()}')),
+          SnackBar(content: Text('Ошибка при выборе изображения: $e')),
         );
       }
+      _logger.severe('Error picking image: $e');
     }
   }
 
