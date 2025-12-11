@@ -25,6 +25,9 @@ dependencies:
   image_picker: ^1.1.2
   firebase_storage: ^12.4.5
   firebase_app_check: ^0.3.2+5
+  equatable: ^2.0.5
+  flutter_riverpod: ^2.5.1
+  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:
@@ -43,3 +46,5 @@ flutter:
     - assets/audio/click.wav
     - assets/audio/success.wav
     - assets/audio/error.wav
+    - assets/mahjong_layouts/
+    - assets/mahjong_dictionaries/

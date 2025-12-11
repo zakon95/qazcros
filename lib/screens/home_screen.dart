@@ -15,6 +15,7 @@ import '../widgets/statistics_widget.dart'; // Импортируем видже
 // --- Замените на ваши реальные пути ---
 import 'level_select_screen.dart';
 import 'game_screen.dart';
+import '../mahjong/screens/mahjong_game_screen.dart';
 import '../widgets/home_level_indicator.dart'; // Импорт индикатора
 import '../services/progress_service.dart'; // <-- ИМПОРТ СЕРВИСА ПРОГРЕССА
 import 'settings_screen.dart'; // <-- ИМПОРТ СЕТТИНГС СКРИНА
@@ -335,18 +336,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           glowColor: app_colors.kPlayBtnGlow,
                           onTap: () async { // Делаем async
                             if (!_isLoading) { // Переходим только если загрузка завершена
-                              _logger.info("Play button tapped - Go to level $_overallCurrentLevel");
+                              _logger.info("Play button tapped - Go to Mahjong Game");
                               // Переходим и ждем возврата
-                              final result = await Navigator.push(
+                              await Navigator.push(
                                 context,
-                                MaterialPageRoute( builder: (_) => GameScreen(levelNumber: _overallCurrentLevel), ),
+                                MaterialPageRoute( builder: (_) => const MahjongGameScreen()),
                               );
-                              if (result == true && mounted) {
-                                setState(() {}); // Пересоздаём StreamBuilder и обновляем прогресс
-                                _loadProgress();
-                              } else {
-                                _loadProgress(); // На всякий случай
-                              }
                             }
                           },
                         ),

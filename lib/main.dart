@@ -9,6 +9,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'screens/login_screen.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> initializeApp() async {
   // Инициализация логгера
@@ -82,7 +83,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
     await initializeApp();
-    runApp(const CrosticApp());
+    runApp(const ProviderScope(child: CrosticApp()));
   } catch (e) {
     // Если инициализация не удалась, показываем экран ошибки
     runApp(MaterialApp(
